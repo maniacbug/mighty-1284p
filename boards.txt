@@ -14,5 +14,6 @@ mighty.bootloader.unlock_bits=0x3F
 mighty.bootloader.lock_bits=0x0F
 mighty.build.mcu=atmega1284p
 mighty.build.f_cpu=16000000L
-mighty.build.core=arduino:arduino
+#mighty.build.core=arduino:arduino
+mighty.build.core=standard
 mighty.build.variant=standard
