@@ -1,7 +1,7 @@
 
 ##############################################################
 
-mighty.name=Mighty 1284p
+mighty.name=Mighty 1284p 16MHz
 mighty.upload.protocol=stk500v1
 mighty.upload.maximum_size=129024
 mighty.upload.speed=57600
@@ -14,6 +14,25 @@ mighty.bootloader.unlock_bits=0x3F
 mighty.bootloader.lock_bits=0x0F
 mighty.build.mcu=atmega1284p
 mighty.build.f_cpu=16000000L
+#mighty.build.core=arduino:arduino
+mighty.build.core=standard
+mighty.build.variant=standard
+
+##############################################################
+
+mighty.name=Mighty 1284p 16MHz
+mighty.upload.protocol=stk500v1
+mighty.upload.maximum_size=129024
+mighty.upload.speed=57600
+mighty.bootloader.low_fuses=0xff
+mighty.bootloader.high_fuses=0xdc
+mighty.bootloader.extended_fuses=0xfd
+mighty.bootloader.path=standard
+mighty.bootloader.file=ATmegaBOOT_1284P_8MHz.hex
+mighty.bootloader.unlock_bits=0x3F
+mighty.bootloader.lock_bits=0x0F
+mighty.build.mcu=atmega1284p
+mighty.build.f_cpu=8000000L
 #mighty.build.core=arduino:arduino
 mighty.build.core=standard
 mighty.build.variant=standard
