@@ -20,7 +20,7 @@ mighty.build.variant=standard
 
 ##############################################################
 
-mighty.name=Mighty 1284p 16MHz
+mighty.name=Mighty 1284p 8MHz
 mighty.upload.protocol=stk500v1
 mighty.upload.maximum_size=129024
 mighty.upload.speed=57600
