@@ -1,4 +1,3 @@
-
 ##############################################################
 
 mighty.name=Mighty 1284p 16MHz
@@ -20,19 +19,19 @@ mighty.build.variant=standard
 
 ##############################################################
 
-mighty.name=Mighty 1284p 8MHz
-mighty.upload.protocol=stk500v1
-mighty.upload.maximum_size=129024
-mighty.upload.speed=57600
-mighty.bootloader.low_fuses=0xff
-mighty.bootloader.high_fuses=0xdc
-mighty.bootloader.extended_fuses=0xfd
-mighty.bootloader.path=standard
-mighty.bootloader.file=ATmegaBOOT_1284P_8MHz.hex
-mighty.bootloader.unlock_bits=0x3F
-mighty.bootloader.lock_bits=0x0F
-mighty.build.mcu=atmega1284p
-mighty.build.f_cpu=8000000L
-#mighty.build.core=arduino:arduino
-mighty.build.core=standard
-mighty.build.variant=standard
+mighty8.name=Mighty 1284p 8MHz
+mighty8.upload.protocol=stk500v1
+mighty8.upload.maximum_size=129024
+mighty8.upload.speed=57600
+mighty8.bootloader.low_fuses=0xff
+mighty8.bootloader.high_fuses=0xdc
+mighty8.bootloader.extended_fuses=0xfd
+mighty8.bootloader.path=standard
+mighty8.bootloader.file=ATmegaBOOT_1284P_8MHz.hex
+mighty8.bootloader.unlock_bits=0x3F
+mighty8.bootloader.lock_bits=0x0F
+mighty8.build.mcu=atmega1284p
+mighty8.build.f_cpu=8000000L
+#mighty8.build.core=arduino:arduino
+mighty8.build.core=standard
+mighty8.build.variant=standard
