@@ -13,4 +13,8 @@ Everything is here and has been initially tested.  It should work fine.  There i
 1. Download the [ZIP File](https://github.com/maniacbug/mighty-1284p/zipball/master)
 2. Unzip it a folder called 'hardware' off your sketches directory, e.g. /Users/maniacbug/Source/Arduino/hardware/mighty-1284p
 3. Restart the IDE
-4. Select "Mighty 1284P"
+4. Select Tools > Board > Mighty 1284p 16MHz
+
+## See also
+
+http://maniacbug.wordpress.com/2011/11/27/arduino-on-atmega1284p-4/
