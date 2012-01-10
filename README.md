@@ -15,6 +15,10 @@ Everything is here and has been initially tested.  It should work fine.  There i
 3. Restart the IDE
 4. Select Tools > Board > Mighty 1284p 16MHz
 
+## Requirements
+
+Works only on Arduino >= 1.0
+
 ## See also
 
 http://maniacbug.wordpress.com/2011/11/27/arduino-on-atmega1284p-4/
