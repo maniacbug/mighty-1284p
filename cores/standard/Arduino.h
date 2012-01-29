@@ -123,14 +123,14 @@ void loop(void);
 
 // On the ATmega1280, the addresses of some of the port registers are
 // greater than 255, so we can't store them in uint8_t's.
-extern const uint16_t PROGMEM port_to_mode_PGM[];
-extern const uint16_t PROGMEM port_to_input_PGM[];
-extern const uint16_t PROGMEM port_to_output_PGM[];
+extern const uint16_t port_to_mode_PGM[];
+extern const uint16_t port_to_input_PGM[];
+extern const uint16_t port_to_output_PGM[];
 
-extern const uint8_t PROGMEM digital_pin_to_port_PGM[];
-// extern const uint8_t PROGMEM digital_pin_to_bit_PGM[];
-extern const uint8_t PROGMEM digital_pin_to_bit_mask_PGM[];
-extern const uint8_t PROGMEM digital_pin_to_timer_PGM[];
+extern const uint8_t digital_pin_to_port_PGM[];
+// extern const uint8_t digital_pin_to_bit_PGM[];
+extern const uint8_t digital_pin_to_bit_mask_PGM[];
+extern const uint8_t digital_pin_to_timer_PGM[];
 
 // Get the bit location within the hardware port of the given virtual pin.
 // This comes from the pins_*.c file for the active board configuration.
