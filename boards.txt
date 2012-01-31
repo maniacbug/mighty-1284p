@@ -19,6 +19,25 @@ mighty_opt.build.variant=standard
 
 ##############################################################
 
+avr_developers.name=avr-developers.com pinouts 16MHz using Optiboot
+avr_developers.upload.protocol=arduino
+avr_developers.upload.maximum_size=130048
+avr_developers.upload.speed=115200
+avr_developers.bootloader.low_fuses=0xff
+avr_developers.bootloader.high_fuses=0xde
+avr_developers.bootloader.extended_fuses=0xfd
+avr_developers.bootloader.path=optiboot
+avr_developers.bootloader.file=optiboot_atmega1284p.hex
+avr_developers.bootloader.unlock_bits=0x3F
+avr_developers.bootloader.lock_bits=0x0F
+avr_developers.build.mcu=atmega1284p
+avr_developers.build.f_cpu=16000000L
+#avr_developers.build.core=arduino:arduino
+avr_developers.build.core=standard
+avr_developers.build.variant=avr_developers
+
+##############################################################
+
 mighty.name=Mighty 1284p 16MHz
 mighty.upload.protocol=stk500v1
 mighty.upload.maximum_size=129024
