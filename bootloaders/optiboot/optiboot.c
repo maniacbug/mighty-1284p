@@ -133,6 +133,7 @@
 /* Edit History:					  */
 /*							  */
 /* Jan 2012:                                              */
+/* 4.5 WestfW: fix NRWW value for m1284.                  */
 /* 4.4 WestfW: use attribute OS_main instead of naked for */
 /*             main().  This allows optimizations that we */
 /*             count on, which are prohibited in naked    */
@@ -160,7 +161,7 @@
 /**********************************************************/
 
 #define OPTIBOOT_MAJVER 4
-#define OPTIBOOT_MINVER 4
+#define OPTIBOOT_MINVER 5
 
 #define MAKESTR(a) #a
 #define MAKEVER(a, b) MAKESTR(a*256+b)
@@ -259,6 +260,21 @@ void uartDelay() __attribute__ ((naked));
 #endif
 void appStart() __attribute__ ((naked));
 
+/*
+ * NRWW memory
+ * Addresses below NRWW (Non-Read-While-Write) can be programmed while
+ * continuing to run code from flash, slightly speeding up programming
+ * time.  Beware that Atmel data sheets specify this as a WORD address,
+ * while optiboot will be comparing against a 16-bit byte address.  This
+ * means that on a part with 128kB of memory, the upper part of the lower
+ * 64k will get NRWW processing as well, even though it doesn't need it.
+ * That's OK.  In fact, you can disable the overlapping processing for
+ * a part entirely by setting NRWWSTART to zero.  This reduces code
+ * space a bit, at the expense of being slightly slower, overall.
+ *
+ * RAMSTART should be self-explanatory.  It's bigger on parts with a
+ * lot of peripheral registers.
+ */
 #if defined(__AVR_ATmega168__)
 #define RAMSTART (0x100)
 #define NRWWSTART (0x3800)
@@ -270,7 +286,7 @@ void appStart() __attribute__ ((naked));
 #define NRWWSTART (0xE000)
 #elif defined (__AVR_ATmega1284P__)
 #define RAMSTART (0x100)
-#define NRWWSTART (0xF000)
+#define NRWWSTART (0xE000)
 #elif defined(__AVR_ATtiny84__)
 #define RAMSTART (0x100)
 #define NRWWSTART (0x0000)
@@ -522,7 +538,7 @@ int main(void) {
       putch(SIGNATURE_1);
       putch(SIGNATURE_2);
     }
-    else if (ch == 'Q') {
+    else if (ch == STK_LEAVE_PROGMODE) { /* 'Q' */
       // Adaboot no-wait mod
       watchdogConfig(WATCHDOG_16MS);
       verifySpace();
