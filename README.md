@@ -19,7 +19,8 @@ The platform now includes optiboot.  This bootloader is better in every way than
 
 ## Requirements
 
-Works only on Arduino >= 1.0
+* Works only on Arduino >= 1.0
+* Cannot be burned using [USBtinyISP](http://www.ladyada.net/make/usbtinyisp/).  That programmer cannot flash to chips with >64k flash size.
 
 ## See also
 
