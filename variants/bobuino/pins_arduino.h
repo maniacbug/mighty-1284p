@@ -6,14 +6,14 @@
 // ATMEL ATMEGA1284P on Bobuino
 //
 //                       +---\/---+
-//           (D 4) PB0 1 |        | 40 PA0 (D 21) AI 0
-//           (D 5) PB1 2 |        | 39 PA1 (D 20) AI 1
-//      INT2 (D 6) PB2 3 |        | 38 PA2 (D 19) AI 2
-//       PWM (D 7) PB3 4 |        | 37 PA3 (D 18) AI 3
-//   PWM/SS (D 10) PB4 5 |        | 36 PA4 (D 17) AI 4
-//     MOSI (D 11) PB5 6 |        | 35 PA5 (D 16) AI 5
-// PWM/MISO (D 12) PB6 7 |        | 34 PA6 (D 15) AI 6
-//  PWM/SCK (D 13) PB7 8 |        | 33 PA7 (D 14) AI 7
+//           (D 4) PB0 1 |        | 40 PA0 (D 14) AI 0
+//           (D 5) PB1 2 |        | 39 PA1 (D 15) AI 1
+//      INT2 (D 6) PB2 3 |        | 38 PA2 (D 16) AI 2
+//       PWM (D 7) PB3 4 |        | 37 PA3 (D 17) AI 3
+//   PWM/SS (D 10) PB4 5 |        | 36 PA4 (D 18) AI 4
+//     MOSI (D 11) PB5 6 |        | 35 PA5 (D 19) AI 5
+// PWM/MISO (D 12) PB6 7 |        | 34 PA6 (D 20) AI 6
+//  PWM/SCK (D 13) PB7 8 |        | 33 PA7 (D 21) AI 7
 //                 RST 9 |        | 32 AREF
 //                VCC 10 |        | 31 GND 
 //                GND 11 |        | 30 AVCC
@@ -35,7 +35,7 @@ extern const uint8_t digital_pin_to_timer_PGM[];
 
 #define NUM_DIGITAL_PINS            31
 #define NUM_ANALOG_INPUTS           8
-#define analogInputToDigitalPin(p)  ((p < NUM_ANALOG_INPUTS) ? 21 - (p) : -1)
+#define analogInputToDigitalPin(p)  ((p < NUM_ANALOG_INPUTS) ? (p) + 14 : -1)
 
 #define ifpin(p,what,ifnot)	    (((p) >= 0 && (p) < NUM_DIGITAL_PINS) ? (what) : (ifnot))
 #define digitalPinHasPWM(p)         ifpin(p,pgm_read_byte(digital_pin_to_timer_PGM + (p)) != NOT_ON_TIMER,1==0)
@@ -49,14 +49,14 @@ static const uint8_t SDA = 23;
 static const uint8_t SCL = 22;
 static const uint8_t LED = 13;
 
-static const uint8_t A0 = 21;
-static const uint8_t A1 = 20;
-static const uint8_t A2 = 19;
-static const uint8_t A3 = 18;
-static const uint8_t A4 = 17;
-static const uint8_t A5 = 16;
-static const uint8_t A6 = 15;
-static const uint8_t A7 = 14;
+static const uint8_t A0 = 14;
+static const uint8_t A1 = 15;
+static const uint8_t A2 = 16;
+static const uint8_t A3 = 17;
+static const uint8_t A4 = 18;
+static const uint8_t A5 = 19;
+static const uint8_t A6 = 20;
+static const uint8_t A7 = 21;
 
 #define digitalPinToPCICR(p)    ifpin(p,&PCICR,(uint8_t *)0)
 #define digitalPinToPCICRbit(p) ifpin(p,digital_pin_to_pcint[p] >> 3,(uint8_t *)0)
@@ -86,14 +86,14 @@ const uint8_t digital_pin_to_pcint[] =
   13, // D11 PB5
   14, // D12 PB6
   15, // D13 PB7
-  7, // D14 PA7
-  6, // D15 PA6
-  5, // D16 PA5
-  4, // D17 PA4
-  3, // D18 PA3
-  2, // D19 PA2
-  1, // D20 PA1
-  0, // D21 PA0
+  0, // D14 PA0
+  1, // D15 PA1
+  2, // D16 PA2
+  3, // D17 PA3
+  4, // D18 PA4
+  5, // D19 PA5
+  6, // D20 PA6
+  7, // D21 PA7
   16, // D22 PC0
   17, // D23 PC1
   18, // D24 PC2
@@ -196,14 +196,14 @@ const uint8_t PROGMEM digital_pin_to_bit_mask_PGM[] =
   _BV(5), // D11 PB5
   _BV(6), // D12 PB6
   _BV(7), // D13 PB7
-  _BV(7), // D14 PA7
-  _BV(6), // D15 PA6
-  _BV(5), // D16 PA5
-  _BV(4), // D17 PA4
-  _BV(3), // D18 PA3
-  _BV(2), // D19 PA2
-  _BV(1), // D20 PA1
-  _BV(0), // D21 PA0
+  _BV(0), // D14 PA0
+  _BV(1), // D15 PA1
+  _BV(2), // D16 PA2
+  _BV(3), // D17 PA3
+  _BV(4), // D18 PA4
+  _BV(5), // D19 PA5
+  _BV(6), // D20 PA6
+  _BV(7), // D21 PA7
   _BV(0), // D22 PC0
   _BV(1), // D23 PC1
   _BV(2), // D24 PC2
@@ -232,14 +232,14 @@ const uint8_t PROGMEM digital_pin_to_timer_PGM[] =
   NOT_ON_TIMER, // D11 PB5
   TIMER3A, // D12 PB6
   TIMER3B, // D13 PB7
-  NOT_ON_TIMER, // D14 PA7
-  NOT_ON_TIMER, // D15 PA6
-  NOT_ON_TIMER, // D16 PA5
-  NOT_ON_TIMER, // D17 PA4
-  NOT_ON_TIMER, // D18 PA3
-  NOT_ON_TIMER, // D19 PA2
-  NOT_ON_TIMER, // D20 PA1
-  NOT_ON_TIMER, // D21 PA0
+  NOT_ON_TIMER, // D14 PA0
+  NOT_ON_TIMER, // D15 PA1
+  NOT_ON_TIMER, // D16 PA2
+  NOT_ON_TIMER, // D17 PA3
+  NOT_ON_TIMER, // D18 PA4
+  NOT_ON_TIMER, // D19 PA5
+  NOT_ON_TIMER, // D20 PA6
+  NOT_ON_TIMER, // D21 PA7
   NOT_ON_TIMER, // D22 PC0
   NOT_ON_TIMER, // D23 PC1
   NOT_ON_TIMER, // D24 PC2
