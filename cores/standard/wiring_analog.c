@@ -41,22 +41,31 @@ int analogRead(uint8_t pin)
 {
 	uint8_t low, high;
 
-	if (pin >= A0) pin -= A0; // allow for channel or pin numbers
+// allow for channel or pin numbers
+#if defined(digitalPinToAnalogPin)
+	if (digitalPinToAnalogPin(pin) != -1 )
+		pin = digitalPinToAnalogPin(pin);
+#else
+	if (pin >= A0) pin -= A0; 
+#endif
 	
-#if defined(__AVR_ATmega32U4__)
-	pin = analogPinToChannel(pin);
-	ADCSRB = (ADCSRB & ~(1 << MUX5)) | (((pin >> 3) & 0x01) << MUX5);
-#elif defined(ADCSRB) && defined(MUX5)
+#if defined(analogPinToChannel)
+	uint8_t channel = analogPinToChannel(pin);
+#else
+	uint8_t channel = pin;
+#endif
+
+#if defined(ADCSRB) && defined(MUX5)
 	// the MUX5 bit of ADCSRB selects whether we're reading from channels
 	// 0 to 7 (MUX5 low) or 8 to 15 (MUX5 high).
-	ADCSRB = (ADCSRB & ~(1 << MUX5)) | (((pin >> 3) & 0x01) << MUX5);
+	ADCSRB = (ADCSRB & ~(1 << MUX5)) | (((channel >> 3) & 0x01) << MUX5);
 #endif
   
 	// set the analog reference (high two bits of ADMUX) and select the
 	// channel (low 4 bits).  this also sets ADLAR (left-adjust result)
 	// to 0 (the default).
 #if defined(ADMUX)
-	ADMUX = (analog_reference << 6) | (pin & 0x07);
+	ADMUX = (analog_reference << 6) | (channel & 0x07);
 #endif
 
 	// without a delay, we seem to read from the wrong channel
