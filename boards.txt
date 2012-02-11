@@ -38,6 +38,25 @@ avr_developers.build.variant=avr_developers
 
 ##############################################################
 
+bobuino.name=Bobuino
+bobuino.upload.protocol=arduino
+bobuino.upload.maximum_size=130048
+bobuino.upload.speed=115200
+bobuino.bootloader.low_fuses=0xff
+bobuino.bootloader.high_fuses=0xde
+bobuino.bootloader.extended_fuses=0xfd
+bobuino.bootloader.path=optiboot
+bobuino.bootloader.file=optiboot_atmega1284p.hex
+bobuino.bootloader.unlock_bits=0x3F
+bobuino.bootloader.lock_bits=0x0F
+bobuino.build.mcu=atmega1284p
+bobuino.build.f_cpu=16000000L
+#bobuino.build.core=arduino:arduino
+bobuino.build.core=standard
+bobuino.build.variant=bobuino
+
+##############################################################
+
 mighty.name=Mighty 1284p 16MHz
 mighty.upload.protocol=stk500v1
 mighty.upload.maximum_size=129024
