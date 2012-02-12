@@ -26,3 +26,11 @@ The platform now includes optiboot.  This bootloader is better in every way than
 ## See also
 
 http://maniacbug.wordpress.com/2011/11/27/arduino-on-atmega1284p-4/
+
+## Supported Boards
+
+* 'Mighty 1284p 16MHz using Optiboot'.  The main board.  Use this unless you have some clear reason to use another board.  This uses a straightforward pinout that is especially helpful on a breadboard-built unit.
+* 'avr-developers.com pinouts 16MHz using Optiboot'.  Some people prefer the pinouts from avr-developers.com.  The classic pinouts.
+* 'Bobuino'.  CrossRoads' board built for maximum compatibility with Arduino Uno-class shields.
+* 'Original Mighty 1284p 16MHz'.  The very first bootloader I ever got working.  Not recommended for use, but here as historical record.
+* 'Original Mighty 1284p 8MHz'.  Ditto, but runs at 8MHz.
