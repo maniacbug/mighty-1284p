@@ -16,6 +16,7 @@ The platform now includes optiboot.  This bootloader is better in every way than
 2. Unzip it a folder called 'hardware' off your sketches directory, e.g. /Users/maniacbug/Source/Arduino/hardware/mighty-1284p
 3. Restart the IDE
 4. Select Tools > Board > Mighty 1284p 16MHz using Optiboot
+5. To burn the bootloader, follow the Arduino [Bootloader](http://arduino.cc/en/Hacking/Bootloader) instructions.
 
 ## Requirements
 
