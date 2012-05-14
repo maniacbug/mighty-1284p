@@ -428,9 +428,27 @@ atmega1284_8MHz_osc_isp: HFUSE = DC
 # Int. RC Osc. 6CK+65ms
 atmega1284_8MHz_osc_isp: LFUSE = E2
 # 2.7V brownout
-atmega1284_isp_8MHz_osc: EFUSE = FD
-atmega1284_isp_8MHz_osc: isp
+atmega1284_8MHz_osc_isp: EFUSE = FD
+atmega1284_8MHz_osc_isp: isp
 
+atmega1284_8MHz: TARGET = atmega1284p_8MHz
+atmega1284_8MHz: MCU_TARGET = atmega1284p
+atmega1284_8MHz: CFLAGS += '-DLED_START_FLASHES=3' '-DBAUD_RATE=57600' '-DBIGBOOT'
+atmega1284_8MHz: AVR_FREQ = 8000000L
+atmega1284_8MHz: LDSECTIONS  = -Wl,--section-start=.text=0x1fc00
+atmega1284_8MHz: $(PROGRAM)_atmega1284p_8MHz.hex
+atmega1284_8MHz: $(PROGRAM)_atmega1284p_8MHz.lst
+
+atmega1284_8MHz_isp: atmega1284_8MHz
+atmega1284_8MHz_isp: TARGET = atmega1284p_8MHz
+atmega1284_8MHz_isp: MCU_TARGET = atmega1284p
+# 1024 byte boot
+atmega1284_8MHz_isp: HFUSE = DC
+# Int. RC Osc. 6CK+65ms
+atmega1284_8MHz_isp: LFUSE = FF
+# 2.7V brownout
+atmega1284_8MHz_isp: EFUSE = FD
+atmega1284_8MHz_isp: isp
 
 # 1MHz clocked platforms
 #

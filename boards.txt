@@ -19,6 +19,25 @@ mighty_opt.build.variant=standard
 
 ##############################################################
 
+mighty_opt8.name=Mighty 1284p 8MHz using Optiboot
+mighty_opt8.upload.protocol=arduino
+mighty_opt8.upload.maximum_size=129568
+mighty_opt8.upload.speed=57600
+mighty_opt8.bootloader.low_fuses=0xff
+mighty_opt8.bootloader.high_fuses=0xdc
+mighty_opt8.bootloader.extended_fuses=0xfd
+mighty_opt8.bootloader.path=optiboot
+mighty_opt8.bootloader.file=optiboot_atmega1284p_8MHz.hex
+mighty_opt8.bootloader.unlock_bits=0x3F
+mighty_opt8.bootloader.lock_bits=0x0F
+mighty_opt8.build.mcu=atmega1284p
+mighty_opt8.build.f_cpu=8000000L
+#mighty_opt8.build.core=arduino:arduino
+mighty_opt8.build.core=standard
+mighty_opt8.build.variant=standard
+
+##############################################################
+
 avr_developers.name=avr-developers.com pinouts 16MHz using Optiboot
 avr_developers.upload.protocol=arduino
 avr_developers.upload.maximum_size=130048
