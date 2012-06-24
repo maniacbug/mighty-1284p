@@ -255,6 +255,25 @@ atmega1284_isp: LFUSE = FF
 atmega1284_isp: EFUSE = FD
 atmega1284_isp: isp
 
+atmega1284_slow: TARGET = atmega1284p_slow
+atmega1284_slow: MCU_TARGET = atmega1284p
+atmega1284_slow: CFLAGS += '-DLED_START_FLASHES=3' '-DBAUD_RATE=19200' '-DBIGBOOT'
+atmega1284_slow: AVR_FREQ = 16000000L
+atmega1284_slow: LDSECTIONS  = -Wl,--section-start=.text=0x1fc00
+atmega1284_slow: $(PROGRAM)_atmega1284p_slow.hex
+atmega1284_slow: $(PROGRAM)_atmega1284p_slow.lst
+
+atmega1284_slow_isp: atmega1284_slow
+atmega1284_slow_isp: TARGET = atmega1284p_slow
+atmega1284_slow_isp: MCU_TARGET = atmega1284p
+# 1024 byte boot
+atmega1284_slow_isp: HFUSE = DE
+# Low power xtal (16MHz) 16KCK/14CK+65ms
+atmega1284_slow_isp: LFUSE = FF
+# 2.7V brownout
+atmega1284_slow_isp: EFUSE = FD
+atmega1284_slow_isp: isp
+
 # Sanguino has a minimum boot size of 1024 bytes, so enable extra functions
 #
 sanguino: TARGET = atmega644p
