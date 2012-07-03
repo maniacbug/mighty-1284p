@@ -19,6 +19,25 @@ mighty_opt.build.variant=standard
 
 ##############################################################
 
+mighty_opt8.name=Mighty 1284p 8MHz using Optiboot
+mighty_opt8.upload.protocol=arduino
+mighty_opt8.upload.maximum_size=129568
+mighty_opt8.upload.speed=57600
+mighty_opt8.bootloader.low_fuses=0xff
+mighty_opt8.bootloader.high_fuses=0xdc
+mighty_opt8.bootloader.extended_fuses=0xfd
+mighty_opt8.bootloader.path=optiboot
+mighty_opt8.bootloader.file=optiboot_atmega1284p_8MHz.hex
+mighty_opt8.bootloader.unlock_bits=0x3F
+mighty_opt8.bootloader.lock_bits=0x0F
+mighty_opt8.build.mcu=atmega1284p
+mighty_opt8.build.f_cpu=8000000L
+#mighty_opt8.build.core=arduino:arduino
+mighty_opt8.build.core=standard
+mighty_opt8.build.variant=standard
+
+##############################################################
+
 avr_developers.name=avr-developers.com pinouts 16MHz using Optiboot
 avr_developers.upload.protocol=arduino
 avr_developers.upload.maximum_size=130048
@@ -92,3 +111,42 @@ mighty8.build.f_cpu=8000000L
 #mighty8.build.core=arduino:arduino
 mighty8.build.core=standard
 mighty8.build.variant=standard
+
+##############################################################
+
+mighty_int8.name=Mighty 1284p 8MHz, internal oscillator
+mighty_int8.upload.protocol=stk500v1
+mighty_int8.upload.maximum_size=129024
+mighty_int8.upload.speed=28800
+mighty_int8.bootloader.low_fuses=0xe2
+mighty_int8.bootloader.high_fuses=0xdc
+mighty_int8.bootloader.extended_fuses=0xfd
+mighty_int8.bootloader.path=standard
+mighty_int8.bootloader.file=ATmegaBOOT_1284P_8MHz.hex
+mighty_int8.bootloader.unlock_bits=0x3F
+mighty_int8.bootloader.lock_bits=0x0F
+mighty_int8.build.mcu=atmega1284p
+mighty_int8.build.f_cpu=8000000L
+#mighty_int8.build.core=arduino:arduino
+mighty_int8.build.core=standard
+mighty_int8.build.variant=standard
+
+##############################################################
+
+mighty_int8_opt.name=Mighty 1284p 8MHz, optiboot, internal oscillator
+mighty_int8_opt.upload.protocol=arduino
+mighty_int8_opt.upload.maximum_size=130048
+mighty_int8_opt.upload.speed=57600
+mighty_int8_opt.bootloader.low_fuses=0xe2
+mighty_int8_opt.bootloader.high_fuses=0xdc
+mighty_int8_opt.bootloader.extended_fuses=0xfd
+mighty_int8_opt.bootloader.path=optiboot
+mighty_int8_opt.bootloader.file=optiboot_atmega1284p_8MHz_osc.hex
+mighty_int8_opt.bootloader.unlock_bits=0x3F
+mighty_int8_opt.bootloader.lock_bits=0x0F
+mighty_int8_opt.build.mcu=atmega1284p
+mighty_int8_opt.build.f_cpu=8000000L
+#mighty_int8_opt.build.core=arduino:arduino
+mighty_int8_opt.build.core=standard
+mighty_int8_opt.build.variant=standard
+

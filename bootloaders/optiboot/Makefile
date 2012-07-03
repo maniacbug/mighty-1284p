@@ -431,6 +431,44 @@ atmega328_pro8_isp: LFUSE = FF
 atmega328_pro8_isp: EFUSE = 05
 atmega328_pro8_isp: isp
 
+atmega1284_int8: TARGET = atmega1284p_8MHz_osc
+atmega1284_int8: MCU_TARGET = atmega1284p
+atmega1284_int8: CFLAGS += '-DLED_START_FLASHES=3' '-DBAUD_RATE=57600' '-DBIGBOOT'
+atmega1284_int8: AVR_FREQ = 8000000L
+atmega1284_int8: LDSECTIONS  = -Wl,--section-start=.text=0x1fc00
+atmega1284_int8: $(PROGRAM)_atmega1284p_8MHz_osc.hex
+atmega1284_int8: $(PROGRAM)_atmega1284p_8MHz_osc.lst
+
+atmega1284_8MHz_osc_isp: atmega1284_int8
+atmega1284_8MHz_osc_isp: TARGET = atmega1284p_8MHz_osc
+atmega1284_8MHz_osc_isp: MCU_TARGET = atmega1284p
+# 1024 byte boot
+atmega1284_8MHz_osc_isp: HFUSE = DC
+# Int. RC Osc. 6CK+65ms
+atmega1284_8MHz_osc_isp: LFUSE = E2
+# 2.7V brownout
+atmega1284_8MHz_osc_isp: EFUSE = FD
+atmega1284_8MHz_osc_isp: isp
+
+atmega1284_8MHz: TARGET = atmega1284p_8MHz
+atmega1284_8MHz: MCU_TARGET = atmega1284p
+atmega1284_8MHz: CFLAGS += '-DLED_START_FLASHES=3' '-DBAUD_RATE=57600' '-DBIGBOOT'
+atmega1284_8MHz: AVR_FREQ = 8000000L
+atmega1284_8MHz: LDSECTIONS  = -Wl,--section-start=.text=0x1fc00
+atmega1284_8MHz: $(PROGRAM)_atmega1284p_8MHz.hex
+atmega1284_8MHz: $(PROGRAM)_atmega1284p_8MHz.lst
+
+atmega1284_8MHz_isp: atmega1284_8MHz
+atmega1284_8MHz_isp: TARGET = atmega1284p_8MHz
+atmega1284_8MHz_isp: MCU_TARGET = atmega1284p
+# 1024 byte boot
+atmega1284_8MHz_isp: HFUSE = DC
+# Int. RC Osc. 6CK+65ms
+atmega1284_8MHz_isp: LFUSE = FF
+# 2.7V brownout
+atmega1284_8MHz_isp: EFUSE = FD
+atmega1284_8MHz_isp: isp
+
 # 1MHz clocked platforms
 #
 # These are capable of 9600 baud
