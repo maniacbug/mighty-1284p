@@ -1,5 +1,24 @@
 ##############################################################
 
+mighty_bread_opt.name=Mighty 1284p 16MHz using Optiboot (breadboard fuses)
+mighty_bread_opt.upload.protocol=arduino
+mighty_bread_opt.upload.maximum_size=130048
+mighty_bread_opt.upload.speed=115200
+mighty_bread_opt.bootloader.low_fuses=0xf7
+mighty_bread_opt.bootloader.high_fuses=0xde
+mighty_bread_opt.bootloader.extended_fuses=0xfd
+mighty_bread_opt.bootloader.path=optiboot
+mighty_bread_opt.bootloader.file=optiboot_atmega1284p.hex
+mighty_bread_opt.bootloader.unlock_bits=0x3F
+mighty_bread_opt.bootloader.lock_bits=0x0F
+mighty_bread_opt.build.mcu=atmega1284p
+mighty_bread_opt.build.f_cpu=16000000L
+#mighty_bread_opt.build.core=arduino:arduino
+mighty_bread_opt.build.core=standard
+mighty_bread_opt.build.variant=standard
+
+##############################################################
+
 mighty_opt.name=Mighty 1284p 16MHz using Optiboot
 mighty_opt.upload.protocol=arduino
 mighty_opt.upload.maximum_size=130048
