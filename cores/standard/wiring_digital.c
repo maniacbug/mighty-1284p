@@ -3,6 +3,7 @@
   Part of Arduino - http://www.arduino.cc/
 
   Copyright (c) 2005-2006 David A. Mellis
+  Copyright 2013 Bas Wijnen <wijnen@debian.org>
 
   This library is free software; you can redistribute it and/or
   modify it under the terms of the GNU Lesser General Public
@@ -32,17 +33,25 @@ void pinMode(uint8_t pin, uint8_t mode)
 {
 	uint8_t bit = digitalPinToBitMask(pin);
 	uint8_t port = digitalPinToPort(pin);
-	volatile uint8_t *reg;
+	volatile uint8_t *reg, *out;
 
 	if (port == NOT_A_PIN) return;
 
 	// JWS: can I let the optimizer do this?
 	reg = portModeRegister(port);
+	out = portOutputRegister(port);
 
 	if (mode == INPUT) { 
 		uint8_t oldSREG = SREG;
                 cli();
 		*reg &= ~bit;
+		*out &= ~bit;
+		SREG = oldSREG;
+	} else if (mode == INPUT_PULLUP) {
+		uint8_t oldSREG = SREG;
+                cli();
+		*reg &= ~bit;
+		*out |= bit;
 		SREG = oldSREG;
 	} else {
 		uint8_t oldSREG = SREG;
