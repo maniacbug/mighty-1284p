@@ -1,0 +1,5 @@
+# See: http://code.google.com/p/arduino/wiki/Platforms
+
+avrisp.name=Olimex AVR ISP
+avrisp.communication=serial
+avrisp.protocol=stk500v2
