@@ -39,6 +39,7 @@ void analogReference(uint8_t mode)
 
 int analogRead(uint8_t pin)
 {
+	
 	uint8_t low, high;
 
 // allow for channel or pin numbers
@@ -54,6 +55,17 @@ int analogRead(uint8_t pin)
 #else
 	uint8_t channel = pin;
 #endif
+
+#if defined(__AVR_ATmega1284P__) || defined(__AVR_ATmega644P__)
+	if (pin == 24) channel = 7; 
+	if (pin == 25) channel = 6; 
+	if (pin == 26) channel = 5; 
+	if (pin == 27) channel = 4; 
+	if (pin == 28) channel = 3; 
+	if (pin == 29) channel = 2; 
+	if (pin == 30) channel = 1; 
+	if (pin == 31) channel = 0; 
+#endif	
 
 #if defined(ADCSRB) && defined(MUX5)
 	// the MUX5 bit of ADCSRB selects whether we're reading from channels
