@@ -2,6 +2,8 @@ Hint for using Arduino on new computer.
 
 Select Preferences, set the sketchbook to /Users/andershedberg/git/arduino-gsm/GSM_1284p as this will point hardware and board libraries to correct place. Otherwise compiler will not find #include files and hardware definitions.
 
+GSM3ShieldV1AccessProvider in the standard GSM folder has been modified and the standard library file needs to be a non .c, .h or .cpp file or multiple defintions will collide. 
+
 # Mighty 1284P: Platform files for Arduino to run on ATmega1284P
 
 ## What is it?
