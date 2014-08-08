@@ -1,5 +1,4 @@
-.*.swp
-*.orig
-*.bak
 *.o
 *.elf
+*.hex
+*.lst

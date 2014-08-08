@@ -1,0 +1,9 @@
+Version 1:
+
+	* *: Fork from https://github.com/maniacbug/mighty-1284p/.
+	* README.md: Update.
+	* .gitignore: Update.
+	* cores: Remove outdated copy of Arduino source tree.
+	* bootloaders: Build from source.
+	* variants: Remove alternative pinouts.
+	* variants/standard/pins_arduino.h: Correct NUM_DIGITAL_PINS.
