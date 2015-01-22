@@ -1,8 +1,16 @@
 # Mighty 1284P: Platform files for Arduino to run on ATmega1284P
 
+## GEKO Navsat disclaimer
+This is a library originally written by maniacbug. 
+Check: https://github.com/maniacbug/mighty-1284p/
+
+We are keeping a copy here for support/development purposes. Perhaps, we might detect and fix some little bugs, in which case the original author of this work will be notified.
+
+We keep the original description for giving credit to the original author.
+
 ## What is it?
 
-Everything you need to run Arduino on ATmega1284P.
+Everything you need to run Arduino on ATmega1284P. 
 
 ## Current state
 
