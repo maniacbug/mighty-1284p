@@ -1,3 +1,9 @@
+Hint for using Arduino on new computer. 
+
+Select Preferences, set the sketchbook to /Users/andershedberg/git/arduino-gsm/GSM_1284p as this will point hardware and board libraries to correct place. Otherwise compiler will not find #include files and hardware definitions.
+
+GSM3ShieldV1AccessProvider in the standard GSM folder has been modified and the standard library file needs to be a non .c, .h or .cpp file or multiple defintions will collide. 
+
 # Mighty 1284P: Platform files for Arduino to run on ATmega1284P
 
 ## What is it?
@@ -28,6 +34,7 @@ The platform now includes optiboot.  This bootloader is better in every way than
 http://maniacbug.wordpress.com/2011/11/27/arduino-on-atmega1284p-4/
 
 ## Supported Boards
+* 'Cellphone2 1284p 16MHz using Optiboot'. See below, but with Full Swing Crystal Clock fuse settings and with pinout from the Cellphone2 project. https://github.com/damellis/cellphone2
 
 * 'Mighty 1284p 16MHz using Optiboot'.  The main board.  Use this unless you have some clear reason to use another board.  This uses a straightforward pinout that is especially helpful on a breadboard-built unit.
 * 'avr-developers.com pinouts 16MHz using Optiboot'.  Some people prefer the pinouts from avr-developers.com.  The classic pinouts.
